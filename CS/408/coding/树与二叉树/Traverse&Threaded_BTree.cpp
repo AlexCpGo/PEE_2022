@@ -2,7 +2,7 @@
 typedef struct BiTNode{
     ElemType data;
     struct BiTNode *lchild, *rchild;
-}BiTNode, *BiTNode;
+}BiTNode, *BiTree;
 
 typedef struct LinkNode{
     BiTNode *data;
@@ -17,7 +17,7 @@ typedef struct ThreadNode{
     ElemType data;
     struct BiTNode *lchild, *rchild;
     int ltag, rtag;
-}BiTNode, *BiTNode;
+}ThreadNode, *ThreadTree;
 
 ThreadNode *pre = NULL; //Inital global variable *pre
 
@@ -36,6 +36,7 @@ void visit(ThreadNode *q)
 }
 
 /* 1.PreOrder Traverse */
+// 1.1 Recusive Algorithm
 void PreOrder(BiTree T)
 {
     if(T != NULL){
@@ -45,7 +46,25 @@ void PreOrder(BiTree T)
     }
 }
 
-// PreOrder Threaded Traverse Tree
+// 1.2 Loop Algorithm
+void PreOrder2(BiTree T)
+{
+    InitStack(S);
+    BiTree p = T;
+    while(p && !IsEmpty(S)){
+        if(p){
+            visit(p);
+            Push(p);
+            p = p->lchild;
+        }
+        else{
+            Pop(S, p);
+            p = p->rchild;
+        }
+    }
+}
+
+// 1.3 PreOrder Threaded Traverse Tree
 void PreThread(ThreadTree T)
 {
     if(T != NULL){
@@ -67,6 +86,7 @@ void CreatePreThread(ThreadTree T)
 
 
 /* 2.InOrder Traverse */
+// 2.1 Recusive Algorithm
 void InOrder(BiTree T)
 {
     if(T != NULL){
@@ -76,8 +96,28 @@ void InOrder(BiTree T)
     }
 }
 
+// 2.2 Loop Algorithm
+void InOrder2(BiTree T)
+{
+    InitStack(S);
+    BiTree p = T;
+    while(p || !IsEmpty(S)){
+        // If p != NULL, Push the node alone the left direction utill the most left node
+        if(p){
+            Push(S, p);
+            p = p->lchild;
+        }
+        // If p = NULL, pop the most relative left node and change to its right bro.
+        else{
+            Pop(S, p);
+            visit(p);
+            p = p->rchild;
+        }
+    }
+}
 
-// InOrder Threaded Traverse Tree
+
+// 2.3 InOrder Threaded Traverse Tree
 void InThread(ThreadTree T)
 {
     if(T != NULL){
@@ -99,7 +139,7 @@ void CreateInThread(ThreadTree T)
 
 
 /* 3.PostOrder Traverse*/ 
-
+// 3.1 Recursive Algorithm
 void PostOrder(BiTree T)
 {
     if(T != NULL){
@@ -121,7 +161,35 @@ int treeDepth(BiTree T)
     }
 }
 
-//PostOrder Threaded Traverse Tree
+
+// 2.2 Loop Algorithm
+void PostOrder(BiTree T)
+{
+    InitStack(S);
+    BiTree p = T;
+    r = NULL; // r: The recent node that has been visited.
+    while(p || !IsEmpty(S)){
+        if(p){
+            Push(S, p);
+            p = p->lchild;
+        }
+        else{
+            GetTop(S, p);
+            if(p->rchild && r != p->rchild){
+                p = p->rchild;
+            }            
+            else{
+                Pop(S, p);
+                visit(p);
+                r = p;
+                p = NULL;
+            }
+        }
+    }
+}
+
+
+// 2.3 PostOrder Threaded Traverse Tree
 void PostThread(ThreadTree T)
 {
     if(T!=NULL){
@@ -160,6 +228,7 @@ void LevelOrder(BiTree T)
 
 
 // Use Threaded BTree to find the pre_node and next_node
+// To find the next_node
 // 1) p->rtag == 1, next = p->rchild
 // 2) p-rtag == 0, next = the most left one node in the right subtree of p
 ThreadNode *Firstnode(ThreadNode *p)
@@ -170,13 +239,36 @@ ThreadNode *Firstnode(ThreadNode *p)
 
 ThreadNode *Nextnode(ThreadNode *p) 
 {
-    if(p->tag == 0) return Firstnode(p->rchild);
-    else return p->rchild
+    if(p->rtag == 0) return Firstnode(p->rchild);
+    else return p->rchild;
 }
 
 void InOrder(ThreadNode *T)
 {
-    for (ThreadNode *p=Firstnode(T); p!=NULL; p=Nextnode(P)){
+    for (ThreadNode *p=Firstnode(T); p!=NULL; p=Nextnode(p)){
         visit(p);
     }
 }
+
+// To find the pre_node
+// 1) p->rtag == 1, next = p->lchild
+// 2) p-rtag == 0, next = the most right one node in the left subtree of p
+ThreadNode *Lastnode(ThreadNode *p)
+{
+    while(p->rtag == 0) p = p->rchild;
+    return p;
+}
+
+ThreadNode *Prenode(ThreadNode *p) 
+{
+    if(p->ltag == 0) return Firstnode(p->lchild);
+    else return p->lchild;
+}
+
+void RevInOrder(ThreadNode *T)
+{
+    for (ThreadNode *p=Lastnode(T); p!=NULL; p=Prenode(p)){
+        visit(p);
+    }
+}
+
