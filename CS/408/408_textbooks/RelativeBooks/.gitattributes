@@ -19,3 +19,7 @@ pat总结.pdf filter=lfs diff=lfs merge=lfs -text
 机器学习个人笔记完整版v5.4-A4打印版.pdf filter=lfs diff=lfs merge=lfs -text
 计算机组成与系统结构-袁春风.pdf filter=lfs diff=lfs merge=lfs -text
 算法导论中文版[[:space:]](1).pdf filter=lfs diff=lfs merge=lfs -text
+C[[:space:]]Primer[[:space:]]Plus[[:space:]]第6版[[:space:]]中文版.zip filter=lfs diff=lfs merge=lfs -text
+C++[[:space:]]Primer[[:space:]]Plus（第6版）中文版.zip filter=lfs diff=lfs merge=lfs -text
+MOOC_数据结构.zip filter=lfs diff=lfs merge=lfs -text
+PAT_A冬季解题代码.zip filter=lfs diff=lfs merge=lfs -text
