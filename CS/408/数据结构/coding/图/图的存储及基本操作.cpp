@@ -10,14 +10,14 @@ typedef struct{
 }MGraph;
 
 //###### Adjacent list Method
-// Directional Edge
+// Nodes after Edge pointed to/connect to
 typedef struct ArcNode{
     int adjvex;
     struct ArcNode *next;
     //InfoType info;
 }ArcNode;
 
-// Vertex
+// Vertex Node that is stored in the first position 
 typedef struct VNode{
     VertexType data;
     ArcNode *first;
