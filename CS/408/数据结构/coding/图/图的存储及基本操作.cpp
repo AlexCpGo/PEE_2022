@@ -1,6 +1,6 @@
 //###### Adjacent Matrix Method
 #define MaxVertexNum 100
-#define INFINITY “最大的int值”
+#define INFINITY 0x3ffffff//“某个很大的int值”
 typedef char VertexType;
 typedef int EdgeType; //int:4B; if without weight: bool EdgeType: 1B
 typedef struct{
@@ -8,6 +8,14 @@ typedef struct{
     EdgeType Edge[MaxVertexNum][MaxVertexNum];
     int vexnum, arcnum;
 }MGraph;
+
+/*
+Simplied version:
+int G[MaxVertexNum][MaxVertexNum];
+#include<algorithm>
+1)int G[MaxVertexNum][MaxVertexNum]; //Fill with 0
+2)fill(G[0], G[0]+MaxVertexNum*MaxVertexNum, INF) //Fill with INF
+*/
 
 //###### Adjacent list Method
 // Nodes after Edge pointed to/connect to
