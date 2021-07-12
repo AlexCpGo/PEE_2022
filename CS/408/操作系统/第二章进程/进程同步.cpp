@@ -90,8 +90,9 @@ remainder section;
 ...
 */
 
-// 2) 硬件指令方法（TestAndSet TS or TestAndSetLock TSL) 原子操作不被中断
-// 代码仅为对功能实现的描述，实际为硬件逻辑实现，不被中断
+// 2) 硬件指令方法（TestAndSet TS or TestAndSetLock TSL)： 不能实现让权等待 
+// 代码仅为对功能实现的描述，实际为硬件逻辑实现，原子操作不被中断
+/*
 boolean TestAndSet(boolean *lock)
 {
     boolean old;
@@ -101,6 +102,24 @@ boolean TestAndSet(boolean *lock)
 }
 
 while TestAndSet(&lock);
+进程的临界区代码段;
+lock = false;
+进程的其他代码;
+*/
+
+// 3) Swap指令: 不能实现让权等待
+/*
+Swap(boolean *a, boolean *b)
+{
+    boolean temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+key = true;
+while (key != false)
+    Swap(&lock, &key);
 进程的临界区代码段;
 lock = false;
 进程的其他代码;
