@@ -91,3 +91,42 @@ P1(){
     P(S); // To check whether Codes in block 1 and 2 have been run 
     block 6;
 }
+
+// ##实现前驱关系
+// S1->S2, S1->S3, S2->S4, S2->S5, S3->S6, S4->S6, S5->S6
+semaphore s12, s13, s24, s25, s36, s46, s56
+S1(){
+    ...;
+    V(s12);
+    V(s13);
+}
+
+S2(){
+    P(s12);
+    ...;
+    V(s24);
+    V(s25);
+}
+
+S3(){
+    P(s13);
+    ...;
+    V(s36);
+}
+
+S4(){
+    P(s24);
+    ...;
+    V(s46);
+} 
+S5(){
+    P(s25);
+    ...;
+    V(s56);
+}
+S6(){
+    P(s36);
+    P(s46);
+    P(s56);
+    ...;
+}
