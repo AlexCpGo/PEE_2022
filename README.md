@@ -1,19 +1,19 @@
 # PEE_2022
-Preparation for the Postgraduate Entrance Examination
+  Preparation for the Postgraduate Entrance Examination
 
-## Exam Date:
-Dec. 25th to Dec. 26th, 2022
+## 1. Exam Date:
+  Dec. 25th to Dec. 26th, 2022
 
-## Target:
-**School**:
+## 2. Target:
+**2.1 School**:
 
 Zhejiang University
 
-**Institude & Major**:
+**2.2 Institude & Major**:
 
 Computer Science 
 
-## Goal Score:
+## 3. Goal Score:
 Math: 140+
 
 CS408: 140+
