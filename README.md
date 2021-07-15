@@ -5,9 +5,11 @@ Preparation for the Postgraduate Entrance Examination
 Dec. 25th to Dec. 26th, 2022
 
 ## Target:
-- School:
-Zhejiang University, 
-- Institude & Major:
+- **School**:
+- 
+Zhejiang University
+- **Institude & Major***:
+
 Computer Science 
 
 ## Goal Score:
