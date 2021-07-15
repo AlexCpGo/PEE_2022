@@ -21,3 +21,5 @@ CS408: 140+
 English: 90+
 
 Politics: 80+
+
+Total: 430+
