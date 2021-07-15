@@ -9,7 +9,7 @@
 
 Zhejiang University
 
-**2.2 Institude & Major**:
+**2.2 Institute & Major**:
 
 Computer Science 
 
