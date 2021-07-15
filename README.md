@@ -19,4 +19,4 @@ Computer Science
 
 | English: 90+  | Politics: 80+ |
 
-**Total: 430+ **
+***Total: 430+***
