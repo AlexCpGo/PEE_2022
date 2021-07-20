@@ -1,12 +1,13 @@
+//1. a heap in descending order with the max number located in the top of the heap
 void BuildMaxHeap(ElemType A[], int len)
 {
     // Adjust all the nodes except the leaf nodes
     for (int i=len/2; i>0; i--){
-        HeadAdjust(A, i, len);
+        HeadMaxAdjust(A, i, len);
     }
 }
 
-void HeadAdjust(ElemType A[], int k, int len)
+void HeadMaxAdjust(ElemType A[], int k, int len)
 {
     A[0] = A[k];
     for(i=2*k; i<=len; i*=2){
@@ -20,6 +21,20 @@ void HeadAdjust(ElemType A[], int k, int len)
     A[k] = A[0];
 }
 
+//2. a heap in descending order with the min number located in the top of the heap
+void BuildMinHeap(ElemType A[], int len)
+{
+    // Adjust all the nodes except the leaf nodes
+    for (int i=len/2; i>0; i--){
+        HeadMaxAdjust(A, i, len);
+    }
+}
+
+void HeadMinAdjust(ElemType A[], int k, int len)
+
+
+
+
 void HeapSort(ElemType A[], int len)
 {
     BuildMaxHeap(A, len);
@@ -28,3 +43,5 @@ void HeapSort(ElemType A[], int len)
         HeadAdjust(A, 1, i-1);
     }
 }
+
+//
