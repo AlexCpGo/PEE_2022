@@ -2,7 +2,7 @@
 #define maxSize 100 
 
 // Update top of the stack when data into stack
-// Sequential Stack
+// ###### Sequential Stack
 typedef struct
 {
 	int  data[maxSize];
@@ -44,10 +44,9 @@ int push(SqStack &st, int x)
 // Pop
 int pop(SqStack &st, int &x)
 {
-	if (st.top == -1)
-		return 0;
+	if (st.top == -1) return 0;
 	x = st.data[st.top];
-	--(st.top;
+	--(st.top);
 	return 1;
 }
 
@@ -60,13 +59,10 @@ stack[++top] = x;
 x = stack[top--];
 */
 
-// Linked Stack
+// ###### Linked Stack
 int isEmpty(LNode *lst)
 {
-	if(lst->next == NULL)
-		return 1;
-	else
-		return 0;
+	return lst->next == NULL;
 }
 
 /*No limit of return value for no limit of the size of the stack*/
