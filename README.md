@@ -17,6 +17,6 @@ Computer Science
 
 | Math: 140    | CS408: 140   |
 
-| English: 90  | Politics: 80 |
+| English: 80  | Politics: 80 |
 
-***Total: 450***
+***Total: 440***
