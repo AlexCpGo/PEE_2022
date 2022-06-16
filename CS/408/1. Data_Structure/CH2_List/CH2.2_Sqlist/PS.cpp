@@ -2,7 +2,8 @@
 #include "List.h"
 
 Sqlist l, l1, l2;
-int testflag = 0;
+int testflag = 0, PSflag = 1;// PS: Problem Set
+
 /* Function Declaration and global element definition*/
 void test(); 
 void InitSqlist(Sqlist &l);
@@ -12,6 +13,7 @@ void printInfo(Sqlist &l, int testflag);
 
 int main(){
 	//testflag = 1;
+	PSflag = 2;
 	testflag = 9;
 	test();
 	return 0;
@@ -20,7 +22,7 @@ int main(){
 void test(){	
 	InitSqlist(l);
 	
-	/* For 2.7 */
+	/* For 2.2.7 */
 	//TwoList(l1,l2);
 	/* Initialize the new Sqlist L for the merged result */
 	//l.length = l1.length + l2.length;
@@ -129,9 +131,9 @@ void TwoList(Sqlist &l1, Sqlist &l2){
 	return;
 }
 
-void printInfo(Sqlist &l, int testflag){
+void printInfo(Sqlist &l, int PSflag, int testflag){
 	int idx;
-	printf("\n\nFor qustion 2.%d, after the operation:\n", testflag);
+	printf("\n\nFor qustion 2.%d.%d, after the operation:\n", PSflag, testflag);
 	printf("  The length of Sqlist l is %d\n",l.length);
 	printf("  Sqlist l is ");
 	for (idx=0; idx<=l.length-1; ++idx){

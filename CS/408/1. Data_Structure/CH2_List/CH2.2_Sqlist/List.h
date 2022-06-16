@@ -1,3 +1,6 @@
+#ifndef _LIST_H_
+#define _LIST_H_
+
 #include <stdio.h>
 #include "Sqlist.h"
 
@@ -255,5 +258,7 @@ bool SearchElem(Sqlist &L, int x){
 		}
 	}
 }
+
+#endif
 
 
