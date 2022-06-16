@@ -13,9 +13,9 @@
 
 Zhejiang University
 
-**2.2 Institute & Major**:
+**2.2 Institute, Major**:
 
-Computer Science 
+Computer Science, Electronic Information
 
 ## 3. Goal Score:
 
