@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include "List.h"
+#include "2.2List.h"
 
 Sqlist l, l1, l2;
-int testflag = 0, PSflag = 1;// PS: Problem Set
+int testflag = 0, PSflag = 2;// PS: Problem Set
 
 /* Function Declaration and global element definition*/
 void test(); 
@@ -13,7 +13,6 @@ void printInfo(Sqlist &l, int testflag);
 
 int main(){
 	//testflag = 1;
-	PSflag = 2;
 	testflag = 9;
 	test();
 	return 0;
@@ -131,7 +130,7 @@ void TwoList(Sqlist &l1, Sqlist &l2){
 	return;
 }
 
-void printInfo(Sqlist &l, int PSflag, int testflag){
+void printInfo(Sqlist &l, int testflag){
 	int idx;
 	printf("\n\nFor qustion 2.%d.%d, after the operation:\n", PSflag, testflag);
 	printf("  The length of Sqlist l is %d\n",l.length);

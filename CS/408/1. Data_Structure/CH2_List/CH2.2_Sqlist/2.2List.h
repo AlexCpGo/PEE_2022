@@ -1,5 +1,5 @@
-#ifndef _LIST_H_
-#define _LIST_H_
+#ifndef _2_2_LIST_H_
+#define _2_2_LIST_H_
 
 #include <stdio.h>
 #include "Sqlist.h"
@@ -18,7 +18,7 @@ bool ReorderList(Sqlist &L);
 bool SearchElem(Sqlist &L, int x)
 
 /* 
- * 2.1 DeleteMin
+ * 2.2.1 DeleteMin
  *   DESCRIPTION: Delete the min element of the Sqlist and use the final idx element to replace its position
  *   INPUTS: Sqlist &L
  *   OUTPUTS: new Sqlist &L
@@ -49,7 +49,7 @@ int DeleteMin(Sqlist &L) {
 }
 
 /* 
- * 2.2 ReverseSqlist
+ * 2.2.2 ReverseSqlist
  *   DESCRIPTION: Reverse the Sqlist, S = O(1)
  *   INPUTS: Sqlist &L
  *   OUTPUTS: Reversed Sqlist &L
@@ -66,7 +66,7 @@ void ReverseSqlist(Sqlist &L) {
 }
 
 /* 
- * 2.3 DeleteElem
+ * 2.2.3 DeleteElem
  *   DESCRIPTION: Delete element with value == x in the Sqlist L; 
  *				  Use a digit k to indicate the idx of the new Sqlist L,
  *                which is also equals to the number of elements not equal to x.
@@ -88,7 +88,7 @@ void DeleteElem(Sqlist &L, int x) {
 }
 
 /* 
- * 2.5 DeletOrdRange
+ * 2.2.4 DeletOrdRange
  *   DESCRIPTION: Delete element in range[s,t] in the orderly Sqlist L; 
  *				  Use a i,j to indicate the element idx in range[s,t].
  *				  Move the elemtents behind j forward to the i
@@ -119,7 +119,7 @@ bool DeleteOrdRange(Sqlist &L, int s, int t) {
 }
 
 /* 
- * 2.5 DeleteRange
+ * 2.2.5 DeleteRange
  *   DESCRIPTION: Delete element in range[s,t] in the Sqlist L; 
  *				  Use a digit k to indicate the idx of the new Sqlist L,
  *                which is also equals to the number of elements not equal to x.
@@ -146,7 +146,7 @@ bool DeleteRange(Sqlist &L, int s, int t) {
 }
 
 /* 
- * 2.6 DeleteRepeat
+ * 2.2.6 DeleteRepeat
  *   DESCRIPTION: Delete repeated elements and remain ones in a ordered Sqlist L
  *				  to make every element in the Sqlist L different
  *                Use L.data[i] to compare the elements behind it, 
@@ -171,7 +171,7 @@ bool DeleteRepeat(Sqlist &L) {
 }
 
 /* 
- * 2.7 MergeList
+ * 2.2.7 MergeList
  *   DESCRIPTION: Merge two ordered Sqlist into a new ordered Sqlist L
  *   INPUTS: Sqlist &L1, Sqlist &L2, empty Sqlist &L;
  *   OUTPUTS: new Sqlist &L
@@ -197,7 +197,7 @@ bool MergeList(Sqlist &L1, Sqlist &L2, Sqlist &L)
 }
 
 /* 
- * 2.8 ReorederList
+ * 2.2.8 ReorederList
  *   DESCRIPTION: Reorder the A[m+n] consisted of (a1, a2, a3...am) and (b1, b2, b3...bm)
  *					to make (b1, b2, b3...bm, a1, a2, a3...am)
  *   INPUTS: Sqlist &L
@@ -223,7 +223,7 @@ bool ReorderList(Sqlist &L, int m, int n){
 }
 
 /* 
- * 2.9 SearchElem
+ * 2.2.9 SearchElem
  *   DESCRIPTION: Search a element with value x in a ordered Sqlist L,
  *				  if found, return true and exchange its with the element behind it;
  *				  if not found, return false insert it in this Sqlist L and make it ordered
